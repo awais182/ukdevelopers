@@ -1,0 +1,27 @@
+{
+  "name": "uk-developers-premium-real-estate-construction",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node ./node_modules/vite/bin/vite.js",
+    "start": "npm run dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "backend": "cd server && npm start",
+    "start:all": "node startAll.cjs"
+  },
+  "dependencies": {
+    "framer-motion": "^12.34.3",
+    "leaflet": "^1.9.4",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}

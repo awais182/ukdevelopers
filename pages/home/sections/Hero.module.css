@@ -1,0 +1,11 @@
+/* placeholder styling for Hero section */
+
+.heroSection {
+  /* any additional section-level overrides */
+}
+
+.heroBgImage {
+  /* background-image set dynamically inline */
+  background-repeat: no-repeat;
+}
+

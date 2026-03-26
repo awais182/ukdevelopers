@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "5d352d47-83c7-44af-899a-205f74902b57",
+      "username": "admin",
+      "password": "$2a$10$nYtOj6PbUdqOpJLjAhRZmOA6GD2MG7x0DVOGxRJODDDI9QGZsEmuW"
+    }
+  ],
+  "inquiries": [
+    {
+      "id": "42ebd54f-b1fd-47f7-a2c7-d1935a50ed3e",
+      "name": "Awais Raza",
+      "email": "bscs4eb5048awaisraza@gmail.com",
+      "phone": "03061247986",
+      "projectId": "",
+      "message": "123456789",
+      "source": "whatsapp",
+      "status": "new",
+      "createdAt": "2026-03-25T11:19:12.232Z"
+    }
+  ]
+}
