@@ -232,7 +232,7 @@ const ProjectDetail: React.FC = () => {
                       <h3 className="text-black font-black uppercase tracking-[0.2em] text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
                         UK 15 Luxury Homes VR Tours
                       </h3>
-                      <span className="text-gold font-black uppercase tracking-[0.35em] text-xs sm:text-sm md:text-base whitespace-nowrap">
+                      <span className="text-gold font-black uppercase tracking-[0.35em] text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-tight max-w-full md:max-w-lg">
                         Immersive 360° Panoramic Experience
                       </span>
                     </div>
@@ -255,7 +255,7 @@ const ProjectDetail: React.FC = () => {
                         <iframe
                           loading="lazy"
                           title="UK 15 Luxury Homes Panorama B"
-                          src="https://panoraven.com/en/embed/jtBq1DUAWR"
+                          src="https://panoraven.com/en/embed/lYeoPl5xu4"
                           className="w-full h-64 sm:h-80 md:h-96 lg:h-[520px]"
                           frameBorder="0"
                           allowFullScreen
