@@ -86,7 +86,7 @@ const AppRoutes: React.FC<{ isAdminEnabled: boolean }> = ({ isAdminEnabled }) =>
 };
 
 const App: React.FC = () => {
-  const isAdminEnabled = (import.meta as any).env.MODE === 'development' || (import.meta as any).env.VITE_ENABLE_ADMIN === 'true';
+  const isAdminEnabled = true;
 
   return (
     <Router>
