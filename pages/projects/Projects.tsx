@@ -51,8 +51,8 @@ const Projects: React.FC = () => {
             <div className="h-[2px] w-8 sm:w-12 bg-gold"></div>
             <span className="text-gold text-[9px] sm:text-[10px] font-black uppercase tracking-[0.4em] sm:tracking-[0.6em] block">Our Architectural Legacy</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-black uppercase tracking-tighter leading-none mb-6 sm:mb-10">
-            Building <br/><span className="text-gold">Archives.</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-black uppercase tracking-tighter leading-tight mb-6 sm:mb-10">
+            <span className="block sm:inline">Building&nbsp;</span><span className="text-gold">Archives.</span>
           </h1>
           <p className="text-gray-400 text-sm sm:text-base md:text-xl font-light max-w-2xl leading-relaxed">
             A curated selection of 17 landmarks defining the urban skyline of Lahore. Filter through our residential road schemes and high-tech commercial centers.
@@ -177,7 +177,7 @@ const Projects: React.FC = () => {
                       
                       {/* Status Overlay */}
                       <div className="absolute top-4 sm:top-6 md:top-8 left-4 sm:left-6 md:left-8 z-10">
-                         <span className={`px-3 sm:px-5 py-1.5 sm:py-2 text-[8px] sm:text-[9px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white shadow-2xl border ${
+                         <span className={`whitespace-nowrap px-3 sm:px-5 py-1.5 sm:py-2 text-[8px] sm:text-[9px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white shadow-2xl border ${
                            p.status === 'Delivered' ? 'bg-black border-gold/40' : p.status === 'Under Construction' ? 'bg-gold text-black border-gold' : 'bg-gray-800 border-gold/30'
                          }`}>
                            {p.status === 'Under Construction' ? '● Ongoing' : p.status === 'Delivered' ? '✓ Delivered' : '◐ Upcoming'}

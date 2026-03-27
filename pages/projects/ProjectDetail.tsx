@@ -135,12 +135,12 @@ const ProjectDetail: React.FC = () => {
           </Link>
           <div className="max-w-4xl">
             <div className="flex items-center space-x-4 mb-6 flex-wrap gap-3">
-              <span className={`px-5 py-2 text-[9px] font-black uppercase tracking-[0.3em] text-white shadow-xl border ${
+              <span className={`whitespace-nowrap px-5 py-2 text-[9px] font-black uppercase tracking-[0.3em] text-white shadow-xl border ${
                 project.status === 'Delivered' ? 'bg-black border-gold/40' : project.status === 'Under Construction' ? 'bg-gold text-black border-gold' : 'bg-gray-700 border-gold/30'
               }`}>
                 {project.status === 'Under Construction' ? '● Ongoing' : project.status === 'Delivered' ? '✓ Delivered' : '◐ Upcoming'}
               </span>
-              <span className={`px-5 py-2 text-[9px] font-black uppercase tracking-[0.3em] shadow-xl border ${
+              <span className={`whitespace-nowrap px-5 py-2 text-[9px] font-black uppercase tracking-[0.3em] shadow-xl border ${
                 project.category === 'Residential' ? 'bg-gold text-black border-gold' : 'bg-black text-white border-gold/40'
               }`}>
                 {project.category}
@@ -323,6 +323,42 @@ const ProjectDetail: React.FC = () => {
                     </div>
                   </div>
 
+                  {/* UK15 VR Showcase (2 VRs between 3 Marla and 5 Marla) */}
+                  <div className="space-y-8 md:space-y-10 mb-10">
+                    <div className="flex flex-wrap justify-between items-center gap-4 mb-6">
+                      <h3 className="text-black font-black uppercase tracking-[0.4em] text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight">UK 15 VR Tours</h3>
+                      <span className="text-gold text-xs sm:text-sm font-black uppercase tracking-[0.25em] whitespace-nowrap">Immersive 360° Experience</span>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div className="rounded-xl border border-gold/30 bg-white overflow-hidden shadow-xl">
+                        <iframe
+                          loading="lazy"
+                          title="UK 15 VR Panoramic View A"
+                          src="https://panoraven.com/en/embed/kxLfa58uYU"
+                          className="w-full h-56 md:h-72 lg:h-80"
+                          frameBorder="0"
+                          allowFullScreen
+                        />
+                        <div className="p-3 bg-gray-50 text-center">
+                          <p className="text-black font-black uppercase tracking-[0.2em] text-xs sm:text-sm">Panorama VR A</p>
+                        </div>
+                      </div>
+                      <div className="rounded-xl border border-gold/30 bg-white overflow-hidden shadow-xl">
+                        <iframe
+                          loading="lazy"
+                          title="UK 15 VR Panoramic View B"
+                          src="https://panoraven.com/en/embed/jtBq1DUAWR"
+                          className="w-full h-56 md:h-72 lg:h-80"
+                          frameBorder="0"
+                          allowFullScreen
+                        />
+                        <div className="p-3 bg-gray-50 text-center">
+                          <p className="text-black font-black uppercase tracking-[0.2em] text-xs sm:text-sm">Panorama VR B</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   {/* 5 Marla Section */}
                   <div className="space-y-16">
                     <div className="flex items-center justify-between border-b-2 border-gold pb-8">
@@ -484,8 +520,8 @@ const ProjectDetail: React.FC = () => {
               {isUK15 && (
                 <div className="space-y-6 bg-white p-8 border border-gold/20 rounded-lg shadow-lg">
                   <div>
-                    <h4 className="text-black font-black uppercase tracking-[0.4em] text-base sm:text-lg whitespace-nowrap">UK 15 3D Panorama Experience</h4>
-                    <p className="text-gray-600 text-sm sm:text-base mt-2">Explore the UK 15 project through immersive 360° VR tours. Drag or swipe on each view to rotate.</p>
+                    <h4 className="text-black font-black uppercase tracking-[0.3em] text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight">UK 15 3D Panorama Experience</h4>
+                    <p className="text-gray-600 text-sm sm:text-base md:text-lg mt-2">Explore the UK 15 project through immersive 360° VR tours. Drag or swipe on each view to rotate.</p>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="rounded-lg overflow-hidden border border-gold/30">
