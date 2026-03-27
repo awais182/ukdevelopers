@@ -7,6 +7,9 @@ const asset = (path: string) => {
   return encodeURI(path);
 };
 
+// API base URL - change this when deploying backend separately
+export const API_BASE = import.meta.env.VITE_API_BASE || '/api';
+
 export const NAV_LINKS = [
   { label: 'Heritage', href: '#heritage' },
   { label: 'Portfolio', href: '#projects' },

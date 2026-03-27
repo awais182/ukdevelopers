@@ -1,4 +1,5 @@
 import React from 'react';
+import { API_BASE } from '../../constants';
 
 const Admin: React.FC = () => {
   const [token, setToken] = React.useState<string | null>(null);
@@ -13,7 +14,7 @@ const Admin: React.FC = () => {
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/login', {
+      const res = await fetch(`${API_BASE}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -32,7 +33,7 @@ const Admin: React.FC = () => {
 
   const loadInquiries = async () => {
     if (!token) return;
-    const res = await fetch('/api/inquiries', {
+    const res = await fetch(`${API_BASE}/inquiries`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -42,7 +43,7 @@ const Admin: React.FC = () => {
 
   const saveEdit = async (id: string, updates: any) => {
     if (!token) return;
-    const res = await fetch(`/api/inquiries/${id}`, {
+    const res = await fetch(`${API_BASE}/inquiries/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify(updates),
@@ -59,7 +60,7 @@ const Admin: React.FC = () => {
   const exportData = (format: 'csv' | 'json') => {
     if (!token) return;
     // include token in query so browser download works without Authorization header
-    window.location.href = `/api/export?format=${format}&token=${token}`;
+    window.location.href = `${API_BASE}/export?format=${format}&token=${token}`;
   };
 
   // no persistence: always require login on load
@@ -139,7 +140,7 @@ const Admin: React.FC = () => {
                   <button className="px-2 py-1 bg-red-100" onClick={async () => {
                     if (!confirm('Delete this inquiry?')) return;
                     if (!token) { alert('Not authenticated'); return; }
-                    const res = await fetch(`/api/inquiries/${i.id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
+                    const res = await fetch(`${API_BASE}/inquiries/${i.id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
                     if (res.ok || res.status===204) await loadInquiries(); else { const e = await res.json(); alert(e.error||'Delete failed'); }
                   }}>Delete</button>
                 </td>
@@ -178,7 +179,7 @@ const Admin: React.FC = () => {
                   <button className="px-2 py-1 bg-red-100" onClick={async () => {
                     if (!confirm('Delete this whatsapp inquiry?')) return;
                     if (!token) { alert('Not authenticated'); return; }
-                    const res = await fetch(`/api/inquiries/${i.id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
+                    const res = await fetch(`${API_BASE}/inquiries/${i.id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
                     if (res.ok || res.status===204) await loadInquiries(); else { const e = await res.json(); alert(e.error||'Delete failed'); }
                   }}>Delete</button>
                 </td>

@@ -2,7 +2,7 @@
 import React from 'react';
 import SEO from '../../components/common/SEO';
 import { COMPANY_INFO } from '../../COMPANY_INFO';
-import { PROJECTS } from '../../constants';
+import { PROJECTS, API_BASE } from '../../constants';
 
 const Contact: React.FC = () => {
   // Get all 17 projects
@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setStatus('sending');
     try {
-      const res = await fetch('/api/inquiries', {
+      const res = await fetch(`${API_BASE}/inquiries`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, phone, projectId, message, source: 'form' }),
