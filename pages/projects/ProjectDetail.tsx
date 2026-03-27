@@ -135,12 +135,12 @@ const ProjectDetail: React.FC = () => {
           </Link>
           <div className="max-w-4xl">
             <div className="flex items-center space-x-4 mb-6 flex-wrap gap-3">
-              <span className={`whitespace-nowrap px-5 py-2 text-[9px] font-black uppercase tracking-[0.3em] text-white shadow-xl border ${
+              <span className={`whitespace-nowrap px-4 sm:px-5 py-2 text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] font-black uppercase tracking-[0.3em] text-white shadow-xl border ${
                 project.status === 'Delivered' ? 'bg-black border-gold/40' : project.status === 'Under Construction' ? 'bg-gold text-black border-gold' : 'bg-gray-700 border-gold/30'
               }`}>
                 {project.status === 'Under Construction' ? '● Ongoing' : project.status === 'Delivered' ? '✓ Delivered' : '◐ Upcoming'}
               </span>
-              <span className={`whitespace-nowrap px-5 py-2 text-[9px] font-black uppercase tracking-[0.3em] shadow-xl border ${
+              <span className={`whitespace-nowrap px-4 sm:px-5 py-2 text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] font-black uppercase tracking-[0.3em] shadow-xl border ${
                 project.category === 'Residential' ? 'bg-gold text-black border-gold' : 'bg-black text-white border-gold/40'
               }`}>
                 {project.category}
@@ -226,11 +226,52 @@ const ProjectDetail: React.FC = () => {
               {/* UK 15 Home Types Showcase */}
               {isUK15 && (
                 <div className="space-y-32">
+                  {/* UK15 VR Showcase (Top) */}
+                  <div className="space-y-10 p-4 md:p-6 lg:p-8 bg-white border border-gold/20 rounded-2xl shadow-lg">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
+                      <h3 className="text-black font-black uppercase tracking-[0.2em] text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
+                        UK 15 Luxury Homes VR Tours
+                      </h3>
+                      <span className="text-gold font-black uppercase tracking-[0.35em] text-xs sm:text-sm md:text-base whitespace-nowrap">
+                        Immersive 360° Panoramic Experience
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
+                      <div className="rounded-xl border border-gold/30 overflow-hidden shadow-2xl">
+                        <iframe
+                          loading="lazy"
+                          title="UK 15 Luxury Homes Panorama A"
+                          src="https://panoraven.com/en/embed/kxLfa58uYU"
+                          className="w-full h-64 sm:h-80 md:h-96 lg:h-[520px]"
+                          frameBorder="0"
+                          allowFullScreen
+                        />
+                        <div className="p-3 bg-gray-50 text-center">
+                          <p className="text-black font-black uppercase tracking-[0.2em] text-sm sm:text-base">UK 15 Luxury Homes Panorama A</p>
+                        </div>
+                      </div>
+                      <div className="rounded-xl border border-gold/30 overflow-hidden shadow-2xl">
+                        <iframe
+                          loading="lazy"
+                          title="UK 15 Luxury Homes Panorama B"
+                          src="https://panoraven.com/en/embed/jtBq1DUAWR"
+                          className="w-full h-64 sm:h-80 md:h-96 lg:h-[520px]"
+                          frameBorder="0"
+                          allowFullScreen
+                        />
+                        <div className="p-3 bg-gray-50 text-center">
+                          <p className="text-black font-black uppercase tracking-[0.2em] text-sm sm:text-base">UK 15 Luxury Homes Panorama B</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   {/* 3 Marla Section */}
                   <div className="space-y-16">
                     <div className="flex items-center justify-between border-b-2 border-gold pb-8">
-                      <h3 className="text-black font-black uppercase tracking-[0.6em] text-2xl md:text-3xl">3 Marla Luxury Home</h3>
-                      <span className="text-gold text-[9px] font-bold uppercase tracking-widest hidden md:block">Bespoke Design</span>
+                      <h3 className="text-black font-black uppercase tracking-[0.6em] text-2xl sm:text-3xl md:text-4xl lg:text-5xl">3 Marla Luxury Home</h3>
+                      <span className="text-gold text-[9px] sm:text-[10px] md:text-[11px] font-bold uppercase tracking-widest hidden md:block">Bespoke Design</span>
                     </div>
 
                     {/* Elevation - Full Image Display */}
@@ -362,8 +403,8 @@ const ProjectDetail: React.FC = () => {
                   {/* 5 Marla Section */}
                   <div className="space-y-16">
                     <div className="flex items-center justify-between border-b-2 border-gold pb-8">
-                      <h3 className="text-black font-black uppercase tracking-[0.6em] text-2xl md:text-3xl">5 Marla Luxury Home</h3>
-                      <span className="text-gold text-[9px] font-bold uppercase tracking-widest hidden md:block">Premium Edition</span>
+                      <h3 className="text-black font-black uppercase tracking-[0.6em] text-2xl sm:text-3xl md:text-4xl lg:text-5xl">5 Marla Luxury Home</h3>
+                      <span className="text-gold text-[9px] sm:text-[10px] md:text-[11px] font-bold uppercase tracking-widest hidden md:block">Premium Edition</span>
                     </div>
 
                     {/* Elevation */}
@@ -517,49 +558,6 @@ const ProjectDetail: React.FC = () => {
                 </div>
               )}
 
-              {isUK15 && (
-                <div className="space-y-6 bg-white p-8 border border-gold/20 rounded-lg shadow-lg">
-                  <div>
-                    <h4 className="text-black font-black uppercase tracking-[0.3em] text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight">UK 15 3D Panorama Experience</h4>
-                    <p className="text-gray-600 text-sm sm:text-base md:text-lg mt-2">Explore the UK 15 project through immersive 360° VR tours. Drag or swipe on each view to rotate.</p>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="rounded-lg overflow-hidden border border-gold/30">
-                      <iframe
-                        loading="lazy"
-                        title="UK 15 Panorama 1"
-                        src="https://panoraven.com/en/embed/ktXp1rkcL4"
-                        className="w-full h-64"
-                        frameBorder="0"
-                        allowFullScreen
-                      />
-                      <div className="p-2 text-center text-xs font-black uppercase tracking-widest bg-gray-100">Panorama 1</div>
-                    </div>
-                    <div className="rounded-lg overflow-hidden border border-gold/30">
-                      <iframe
-                        loading="lazy"
-                        title="UK 15 Panorama 2"
-                        src="https://panoraven.com/en/embed/qF5hpIfNNd"
-                        className="w-full h-64"
-                        frameBorder="0"
-                        allowFullScreen
-                      />
-                      <div className="p-2 text-center text-xs font-black uppercase tracking-widest bg-gray-100">Panorama 2</div>
-                    </div>
-                    <div className="rounded-lg overflow-hidden border border-gold/30">
-                      <iframe
-                        loading="lazy"
-                        title="UK 15 Panorama 3"
-                        src="https://panoraven.com/en/embed/lYeoPl5xu4"
-                        className="w-full h-64"
-                        frameBorder="0"
-                        allowFullScreen
-                      />
-                      <div className="p-2 text-center text-xs font-black uppercase tracking-widest bg-gray-100">Panorama 3</div>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* Right Column: Investment Matrix (Sticky) */}

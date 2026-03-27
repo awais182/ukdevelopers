@@ -177,7 +177,7 @@ const Projects: React.FC = () => {
                       
                       {/* Status Overlay */}
                       <div className="absolute top-4 sm:top-6 md:top-8 left-4 sm:left-6 md:left-8 z-10">
-                         <span className={`whitespace-nowrap px-3 sm:px-5 py-1.5 sm:py-2 text-[8px] sm:text-[9px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white shadow-2xl border ${
+                         <span className={`whitespace-nowrap px-3 sm:px-5 py-1.5 sm:py-2 text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white shadow-2xl border ${
                            p.status === 'Delivered' ? 'bg-black border-gold/40' : p.status === 'Under Construction' ? 'bg-gold text-black border-gold' : 'bg-gray-800 border-gold/30'
                          }`}>
                            {p.status === 'Under Construction' ? '● Ongoing' : p.status === 'Delivered' ? '✓ Delivered' : '◐ Upcoming'}
@@ -186,7 +186,7 @@ const Projects: React.FC = () => {
 
                       {/* Category Badge - responsive position */}
                       <div className="absolute top-4 sm:top-6 md:top-8 left-4 sm:left-6 md:left-8 z-10 mt-8 sm:mt-0 sm:ml-24 md:ml-32 lg:ml-[180px]">
-                         <span className={`px-2.5 sm:px-4 py-1.5 sm:py-2 text-[7px] sm:text-[9px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] shadow-2xl border ${
+                         <span className={`px-2.5 sm:px-4 py-1.5 sm:py-2 text-[8px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] shadow-2xl border ${
                            p.category === 'Residential' ? 'bg-gold text-black border-gold' : 'bg-black text-white border-gold/40'
                          }`}>
                            {p.category}
