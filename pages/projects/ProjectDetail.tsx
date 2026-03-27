@@ -183,9 +183,12 @@ const ProjectDetail: React.FC = () => {
 
               {/* Project Specifications */}
               <div className="space-y-12">
-                <div className="flex items-center justify-between border-b-2 border-gold pb-6 md:pb-8">
-                  <h3 className="text-black font-black uppercase tracking-[0.6em] text-base md:text-lg">Project Specifications</h3>
-                  <span className="text-gold text-[9px] font-bold uppercase tracking-widest">Essential Details</span>
+                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-6 border-b-2 border-gold pb-6 md:pb-8">
+                  <div>
+                    <h3 className="text-black font-black uppercase tracking-[0.4em] text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">Project Specifications</h3>
+                    <p className="text-gray-500 text-xs sm:text-sm mt-2">All key metrics are responsive and optimized for any screen width.</p>
+                  </div>
+                  <span className="text-gold text-xs sm:text-sm md:text-base font-bold uppercase tracking-[0.4em] whitespace-nowrap">Essential Details</span>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
@@ -237,13 +240,13 @@ const ProjectDetail: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
                       <div className="rounded-xl border border-gold/30 overflow-hidden shadow-2xl">
                         <iframe
                           loading="lazy"
                           title="UK 15 Luxury Homes Panorama A"
-                          src="https://panoraven.com/en/embed/kxLfa58uYU"
-                          className="w-full h-64 sm:h-80 md:h-96 lg:h-[520px]"
+                          src="https://panoraven.com/en/embed/ktXp1rkcL4"
+                          className="w-full h-72 sm:h-96 md:h-[520px] lg:h-[560px]"
                           frameBorder="0"
                           allowFullScreen
                         />
@@ -255,13 +258,26 @@ const ProjectDetail: React.FC = () => {
                         <iframe
                           loading="lazy"
                           title="UK 15 Luxury Homes Panorama B"
-                          src="https://panoraven.com/en/embed/lYeoPl5xu4"
-                          className="w-full h-64 sm:h-80 md:h-96 lg:h-[520px]"
+                          src="https://panoraven.com/en/embed/qF5hpIfNNd"
+                          className="w-full h-72 sm:h-96 md:h-[520px] lg:h-[560px]"
                           frameBorder="0"
                           allowFullScreen
                         />
                         <div className="p-3 bg-gray-50 text-center">
                           <p className="text-black font-black uppercase tracking-[0.2em] text-sm sm:text-base">UK 15 Luxury Homes Panorama B</p>
+                        </div>
+                      </div>
+                      <div className="rounded-xl border border-gold/30 overflow-hidden shadow-2xl">
+                        <iframe
+                          loading="lazy"
+                          title="UK 15 Luxury Homes Panorama C"
+                          src="https://panoraven.com/en/embed/lYeoPl5xu4"
+                          className="w-full h-72 sm:h-96 md:h-[520px] lg:h-[560px]"
+                          frameBorder="0"
+                          allowFullScreen
+                        />
+                        <div className="p-3 bg-gray-50 text-center">
+                          <p className="text-black font-black uppercase tracking-[0.2em] text-sm sm:text-base">UK 15 Luxury Homes Panorama C</p>
                         </div>
                       </div>
                     </div>
@@ -364,43 +380,8 @@ const ProjectDetail: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* UK15 VR Showcase (2 VRs between 3 Marla and 5 Marla) */}
-                  <div className="space-y-8 md:space-y-10 mb-10">
-                    <div className="flex flex-wrap justify-between items-center gap-4 mb-6">
-                      <h3 className="text-black font-black uppercase tracking-[0.4em] text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight">UK 15 VR Tours</h3>
-                      <span className="text-gold text-xs sm:text-sm font-black uppercase tracking-[0.25em] whitespace-nowrap">Immersive 360° Experience</span>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div className="rounded-xl border border-gold/30 bg-white overflow-hidden shadow-xl">
-                        <iframe
-                          loading="lazy"
-                          title="UK 15 VR Panoramic View A"
-                          src="https://panoraven.com/en/embed/kxLfa58uYU"
-                          className="w-full h-56 md:h-72 lg:h-80"
-                          frameBorder="0"
-                          allowFullScreen
-                        />
-                        <div className="p-3 bg-gray-50 text-center">
-                          <p className="text-black font-black uppercase tracking-[0.2em] text-xs sm:text-sm">Panorama VR A</p>
-                        </div>
-                      </div>
-                      <div className="rounded-xl border border-gold/30 bg-white overflow-hidden shadow-xl">
-                        <iframe
-                          loading="lazy"
-                          title="UK 15 VR Panoramic View B"
-                          src="https://panoraven.com/en/embed/jtBq1DUAWR"
-                          className="w-full h-56 md:h-72 lg:h-80"
-                          frameBorder="0"
-                          allowFullScreen
-                        />
-                        <div className="p-3 bg-gray-50 text-center">
-                          <p className="text-black font-black uppercase tracking-[0.2em] text-xs sm:text-sm">Panorama VR B</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
                   {/* 5 Marla Section */}
+
                   <div className="space-y-16">
                     <div className="flex items-center justify-between border-b-2 border-gold pb-8">
                       <h3 className="text-black font-black uppercase tracking-[0.6em] text-2xl sm:text-3xl md:text-4xl lg:text-5xl">5 Marla Luxury Home</h3>
