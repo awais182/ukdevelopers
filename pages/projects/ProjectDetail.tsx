@@ -182,49 +182,51 @@ const ProjectDetail: React.FC = () => {
               </div>
 
               {/* Project Specifications */}
-              <div className="space-y-12">
-                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-6 border-b-2 border-gold pb-6 md:pb-8">
+              <section className="space-y-8 md:space-y-10 bg-gradient-to-b from-white to-gold/5 p-5 sm:p-6 md:p-8 lg:p-10 rounded-3xl border border-gold/20 shadow-xl">
+                <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 lg:gap-6">
                   <div>
-                    <h3 className="text-black font-black uppercase tracking-[0.4em] text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">Project Specifications</h3>
-                    <p className="text-gray-500 text-xs sm:text-sm mt-2">All key metrics are responsive and optimized for any screen width.</p>
+                    <p className="text-gold text-xs sm:text-sm uppercase tracking-[0.35em] font-black pb-1">Project Specifications</p>
+                    <h3 className="text-black font-black uppercase tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">Key metrics that matter</h3>
                   </div>
-                  <span className="text-gold text-xs sm:text-sm md:text-base font-bold uppercase tracking-[0.4em] whitespace-nowrap">Essential Details</span>
-                </div>
+                  <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-md">
+                    Full responsive overview of the project’s most important parameters. This section is designed for clarity on all screens, from mobile to extra-large.
+                  </p>
+                </header>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                   {project.units && (
-                    <div className="group p-5 sm:p-6 md:p-8 border-l-4 border-gold/30 hover:border-gold hover:bg-gold/5 transition-all">
-                      <p className="text-gold text-[10px] font-black uppercase tracking-[0.3em] mb-4">Total Units</p>
-                      <p className="text-5xl md:text-6xl font-black text-black mb-3">{project.units}</p>
-                      <p className="text-gray-500 text-[9px] uppercase tracking-widest font-bold">Individual Spaces</p>
-                    </div>
+                    <article className="border border-gold/30 rounded-2xl p-5 sm:p-6 md:p-7 bg-white shadow-lg transition-all hover:shadow-2xl">
+                      <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm">Total Units</h4>
+                      <p className="mt-3 text-4xl sm:text-5xl md:text-6xl font-black text-black">{project.units}</p>
+                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px]">Individual spaces</small>
+                    </article>
                   )}
-                  
+
                   {project.floors && (
-                    <div className="group p-5 sm:p-6 md:p-8 border-l-4 border-gold/30 hover:border-gold hover:bg-gold/5 transition-all">
-                      <p className="text-gold text-[10px] font-black uppercase tracking-[0.3em] mb-4">Floors</p>
-                      <p className="text-5xl md:text-6xl font-black text-black mb-3">{project.floors}</p>
-                      <p className="text-gray-500 text-[9px] uppercase tracking-widest font-bold">Levels</p>
-                    </div>
+                    <article className="border border-gold/30 rounded-2xl p-5 sm:p-6 md:p-7 bg-white shadow-lg transition-all hover:shadow-2xl">
+                      <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm">Floors</h4>
+                      <p className="mt-3 text-4xl sm:text-5xl md:text-6xl font-black text-black">{project.floors}</p>
+                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px]">Levels</small>
+                    </article>
                   )}
-                  
-                  <div className="group p-5 sm:p-6 md:p-8 border-l-4 border-gold/30 hover:border-gold hover:bg-gold/5 transition-all">
-                    <p className="text-gold text-[10px] font-black uppercase tracking-[0.3em] mb-4">Category</p>
-                    <p className="text-2xl md:text-3xl font-black text-black uppercase mb-3 whitespace-nowrap">{project.category}</p>
-                    <p className="text-gray-500 text-[9px] uppercase tracking-widest font-bold">Type</p>
-                  </div>
-                  
-                  <div className="group p-5 sm:p-6 md:p-8 border-l-4 border-gold/30 hover:border-gold hover:bg-gold/5 transition-all">
-                    <p className="text-gold text-[10px] font-black uppercase tracking-[0.3em] mb-4">Status</p>
-                    <p className={`text-2xl md:text-3xl font-black uppercase mb-3 ${
-                      project.status === 'Delivered' ? 'text-black' : project.status === 'Under Construction' ? 'text-gold' : 'text-gray-600'
+
+                  <article className="border border-gold/30 rounded-2xl p-5 sm:p-6 md:p-7 bg-white shadow-lg transition-all hover:shadow-2xl">
+                    <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm">Category</h4>
+                    <p className="mt-3 text-3xl sm:text-4xl md:text-5xl font-black text-black uppercase">{project.category}</p>
+                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px]">Type</small>
+                  </article>
+
+                  <article className="border border-gold/30 rounded-2xl p-5 sm:p-6 md:p-7 bg-white shadow-lg transition-all hover:shadow-2xl">
+                    <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm">Status</h4>
+                    <p className={`mt-3 text-3xl sm:text-4xl md:text-5xl font-black uppercase ${
+                      project.status === 'Delivered' ? 'text-black' : project.status === 'Under Construction' ? 'text-gold' : 'text-gray-500'
                     }`}>
                       {project.status === 'Under Construction' ? 'Ongoing' : project.status}
                     </p>
-                    <p className="text-gray-500 text-[9px] uppercase tracking-widest font-bold">Progress</p>
-                  </div>
+                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px]">Progress</small>
+                  </article>
                 </div>
-              </div>
+              </section>
 
               {/* UK 15 Home Types Showcase */}
               {isUK15 && (
