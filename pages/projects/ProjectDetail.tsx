@@ -207,7 +207,7 @@ const ProjectDetail: React.FC = () => {
                   
                   <div className="group p-5 sm:p-6 md:p-8 border-l-4 border-gold/30 hover:border-gold hover:bg-gold/5 transition-all">
                     <p className="text-gold text-[10px] font-black uppercase tracking-[0.3em] mb-4">Category</p>
-                    <p className="text-2xl md:text-3xl font-black text-black uppercase mb-3">{project.category}</p>
+                    <p className="text-2xl md:text-3xl font-black text-black uppercase mb-3 whitespace-nowrap">{project.category}</p>
                     <p className="text-gray-500 text-[9px] uppercase tracking-widest font-bold">Type</p>
                   </div>
                   
@@ -477,6 +477,50 @@ const ProjectDetail: React.FC = () => {
                         </li>
                       ))}
                     </ul>
+                  </div>
+                </div>
+              )}
+
+              {isUK15 && (
+                <div className="space-y-6 bg-white p-8 border border-gold/20 rounded-lg shadow-lg">
+                  <div>
+                    <h4 className="text-black font-black uppercase tracking-[0.4em] text-base sm:text-lg whitespace-nowrap">UK 15 3D Panorama Experience</h4>
+                    <p className="text-gray-600 text-sm sm:text-base mt-2">Explore the UK 15 project through immersive 360° VR tours. Drag or swipe on each view to rotate.</p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="rounded-lg overflow-hidden border border-gold/30">
+                      <iframe
+                        loading="lazy"
+                        title="UK 15 Panorama 1"
+                        src="https://panoraven.com/en/embed/ktXp1rkcL4"
+                        className="w-full h-64"
+                        frameBorder="0"
+                        allowFullScreen
+                      />
+                      <div className="p-2 text-center text-xs font-black uppercase tracking-widest bg-gray-100">Panorama 1</div>
+                    </div>
+                    <div className="rounded-lg overflow-hidden border border-gold/30">
+                      <iframe
+                        loading="lazy"
+                        title="UK 15 Panorama 2"
+                        src="https://panoraven.com/en/embed/qF5hpIfNNd"
+                        className="w-full h-64"
+                        frameBorder="0"
+                        allowFullScreen
+                      />
+                      <div className="p-2 text-center text-xs font-black uppercase tracking-widest bg-gray-100">Panorama 2</div>
+                    </div>
+                    <div className="rounded-lg overflow-hidden border border-gold/30">
+                      <iframe
+                        loading="lazy"
+                        title="UK 15 Panorama 3"
+                        src="https://panoraven.com/en/embed/lYeoPl5xu4"
+                        className="w-full h-64"
+                        frameBorder="0"
+                        allowFullScreen
+                      />
+                      <div className="p-2 text-center text-xs font-black uppercase tracking-widest bg-gray-100">Panorama 3</div>
+                    </div>
                   </div>
                 </div>
               )}

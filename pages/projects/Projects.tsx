@@ -76,7 +76,7 @@ const Projects: React.FC = () => {
                     <button 
                       key={type}
                       onClick={() => setActiveType(type)}
-                      className={`px-5 md:px-6 py-2.5 text-[9px] font-black uppercase tracking-widest transition-all duration-300 rounded-lg border-2 ${
+                        className={`px-5 md:px-6 py-2.5 text-[9px] font-black uppercase tracking-widest whitespace-nowrap transition-all duration-300 rounded-lg border-2 ${
                         activeType === type 
                         ? 'bg-black text-white border-black shadow-lg transform scale-105' 
                         : 'text-gray-600 border-gray-200 hover:border-gold hover:text-gold bg-white'
@@ -96,7 +96,7 @@ const Projects: React.FC = () => {
                     <button 
                       key={status}
                       onClick={() => setActiveStatus(status)}
-                      className={`px-4 md:px-5 py-2.5 text-[9px] font-black uppercase tracking-widest border-2 transition-all duration-300 rounded-lg ${
+                      className={`px-4 md:px-5 py-2.5 text-[9px] font-black uppercase tracking-widest whitespace-nowrap border-2 transition-all duration-300 rounded-lg ${
                         activeStatus === status 
                         ? 'bg-gold border-gold text-black shadow-lg transform scale-105' 
                         : 'border-gray-200 text-gray-600 hover:border-gold hover:text-gold bg-white'

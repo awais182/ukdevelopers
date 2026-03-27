@@ -106,7 +106,8 @@ export const COMPANY_INFO = {
     instagram: 'https://www.instagram.com/ukdevelopers.pk/',
     facebook: 'https://facebook.com/ukdevelopers',
     youtube: 'https://www.youtube.com/hashtag/ukdevelopers',
-    whatsapp: 'https://wa.me/923201111986'
+    whatsapp: 'https://wa.me/923201111986',
+    tiktok: 'https://www.tiktok.com/@uk.developers'
   },
 
   // Website & Legal
