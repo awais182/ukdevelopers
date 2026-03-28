@@ -251,60 +251,6 @@ const ProjectDetail: React.FC = () => {
               {/* UK 15 Home Types Showcase */}
               {isUK15 && (
                 <div className="space-y-32">
-                  {/* UK15 VR Showcase (Top) */}
-                  <div className="space-y-10 p-4 md:p-6 lg:p-8 bg-white border border-gold/20 rounded-2xl shadow-lg">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
-                      <h3 className="text-black font-black uppercase tracking-[0.2em] text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
-                        UK 15 Luxury Homes VR Tours
-                      </h3>
-                      <span className="text-gold font-black uppercase tracking-[0.35em] text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-tight max-w-full md:max-w-lg">
-                        Immersive 360° Panoramic Experience
-                      </span>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
-                      <div className="rounded-xl border border-gold/30 overflow-hidden shadow-2xl">
-                        <iframe
-                          loading="lazy"
-                          title="UK 15 Luxury Homes Panorama A"
-                          src="https://panoraven.com/en/embed/ktXp1rkcL4"
-                          className="w-full h-[440px] sm:h-[520px] md:h-[520px] lg:h-[520px] xl:h-[560px]"
-                          frameBorder="0"
-                          allowFullScreen
-                        />
-                        <div className="p-3 bg-gray-50 text-center">
-                          <p className="text-black font-black uppercase tracking-[0.2em] text-sm sm:text-base">UK 15 Luxury Homes Panorama A</p>
-                        </div>
-                      </div>
-                      <div className="rounded-xl border border-gold/30 overflow-hidden shadow-2xl">
-                        <iframe
-                          loading="lazy"
-                          title="UK 15 Luxury Homes Panorama B"
-                          src="https://panoraven.com/en/embed/qF5hpIfNNd"
-                          className="w-full h-[440px] sm:h-[520px] md:h-[520px] lg:h-[520px] xl:h-[560px]"
-                          frameBorder="0"
-                          allowFullScreen
-                        />
-                        <div className="p-3 bg-gray-50 text-center">
-                          <p className="text-black font-black uppercase tracking-[0.2em] text-sm sm:text-base">UK 15 Luxury Homes Panorama B</p>
-                        </div>
-                      </div>
-                      <div className="rounded-xl border border-gold/30 overflow-hidden shadow-2xl">
-                        <iframe
-                          loading="lazy"
-                          title="UK 15 Luxury Homes Panorama C"
-                          src="https://panoraven.com/en/embed/lYeoPl5xu4"
-                          className="w-full h-[440px] sm:h-[520px] md:h-[520px] lg:h-[520px] xl:h-[560px]"
-                          frameBorder="0"
-                          allowFullScreen
-                        />
-                        <div className="p-3 bg-gray-50 text-center">
-                          <p className="text-black font-black uppercase tracking-[0.2em] text-sm sm:text-base">UK 15 Luxury Homes Panorama C</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
                   {/* 3 Marla Section */}
                   <div className="space-y-16">
                     <div className="flex items-center justify-between border-b-2 border-gold pb-8">
