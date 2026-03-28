@@ -196,34 +196,34 @@ const ProjectDetail: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                   {project.units && (
                     <article className="border border-gold/30 rounded-2xl p-5 sm:p-6 md:p-7 bg-white shadow-lg transition-all hover:shadow-2xl">
-                      <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm">Total Units</h4>
-                      <p className="mt-3 text-4xl sm:text-5xl md:text-6xl font-black text-black">{project.units}</p>
-                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px]">Individual spaces</small>
+                      <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm whitespace-nowrap">Total Units</h4>
+                      <p className="mt-3 text-4xl sm:text-5xl md:text-6xl font-black text-black whitespace-nowrap">{project.units}</p>
+                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px] whitespace-nowrap">Individual spaces</small>
                     </article>
                   )}
 
                   {project.floors && (
                     <article className="border border-gold/30 rounded-2xl p-5 sm:p-6 md:p-7 bg-white shadow-lg transition-all hover:shadow-2xl">
-                      <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm">Floors</h4>
-                      <p className="mt-3 text-4xl sm:text-5xl md:text-6xl font-black text-black">{project.floors}</p>
-                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px]">Levels</small>
+                      <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm whitespace-nowrap">Floors</h4>
+                      <p className="mt-3 text-4xl sm:text-5xl md:text-6xl font-black text-black whitespace-nowrap">{project.floors}</p>
+                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px] whitespace-nowrap">Levels</small>
                     </article>
                   )}
 
                   <article className="border border-gold/30 rounded-2xl p-5 sm:p-6 md:p-7 bg-white shadow-lg transition-all hover:shadow-2xl">
-                    <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm">Category</h4>
-                    <p className="mt-3 text-3xl sm:text-4xl md:text-5xl font-black text-black uppercase">{project.category}</p>
-                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px]">Type</small>
+                    <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm whitespace-nowrap">Category</h4>
+                    <p className="mt-3 text-3xl sm:text-4xl md:text-5xl font-black text-black uppercase whitespace-nowrap">{project.category}</p>
+                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px] whitespace-nowrap">Type</small>
                   </article>
 
                   <article className="border border-gold/30 rounded-2xl p-5 sm:p-6 md:p-7 bg-white shadow-lg transition-all hover:shadow-2xl">
-                    <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm">Status</h4>
-                    <p className={`mt-3 text-3xl sm:text-4xl md:text-5xl font-black uppercase ${
+                    <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm whitespace-nowrap">Status</h4>
+                    <p className={`mt-3 text-3xl sm:text-4xl md:text-5xl font-black uppercase whitespace-nowrap ${
                       project.status === 'Delivered' ? 'text-black' : project.status === 'Under Construction' ? 'text-gold' : 'text-gray-500'
                     }`}>
                       {project.status === 'Under Construction' ? 'Ongoing' : project.status}
                     </p>
-                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px]">Progress</small>
+                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px] whitespace-nowrap">Progress</small>
                   </article>
                 </div>
               </section>
