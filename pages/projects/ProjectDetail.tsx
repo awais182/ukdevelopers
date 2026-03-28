@@ -576,92 +576,79 @@ const ProjectDetail: React.FC = () => {
 
                     {isUK15 ? (
                       // UK 15 Special Payment Table
-                      <div className="space-y-8">
-                        {/* 3 Marla Structure */}
-                        <div className="space-y-4">
-                          <h4 className="text-xl font-black uppercase tracking-[0.3em] text-gold mb-4">3 Marla Luxury Home</h4>
-                          <div className="space-y-3">
-                            <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                              <span className="text-sm font-bold text-gray-300">Booking (5%)</span>
-                              <span className="text-lg font-black text-white">PKR 995,000</span>
+                      <div className="space-y-6">
+                        <div className="grid grid-cols-1 gap-4">
+                          <div className="rounded-3xl border border-white/10 bg-white/10 p-4 sm:p-5">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-3">
+                              <div>
+                                <p className="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-gold">3 Marla</p>
+                                <h4 className="text-lg sm:text-xl font-black text-white">Luxury Home</h4>
+                              </div>
+                              <span className="text-[10px] sm:text-sm font-black uppercase tracking-[0.35em] text-gold">Total</span>
                             </div>
-                            <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                              <span className="text-sm font-bold text-gray-300">Confirmation (15%)</span>
-                              <span className="text-lg font-black text-white">PKR 2,985,000</span>
+                            <div className="grid grid-cols-1 gap-2 text-sm sm:text-base text-gray-300">
+                              {[
+                                ['Booking', 'PKR 995,000'],
+                                ['Confirmation', 'PKR 2,985,000'],
+                                ['Installments', '10 x PKR 597,000'],
+                                ['Grey Works', 'PKR 3,980,000'],
+                                ['Possession', 'PKR 5,970,000'],
+                              ].map(([label, value]) => (
+                                <div key={label} className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-2">
+                                  <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-gray-400">{label}</span>
+                                  <span className="font-black text-sm sm:text-base text-white">{value}</span>
+                                </div>
+                              ))}
                             </div>
-                            <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                              <span className="text-sm font-bold text-gray-300">3% in 10 Installments</span>
-                              <span className="text-lg font-black text-white">PKR 597,000</span>
+                            <div className="mt-4 rounded-2xl bg-gold/10 px-3 py-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] sm:text-sm font-black text-gold">
+                              <span>Total Value</span>
+                              <span>PKR 19,900,000</span>
                             </div>
-                            <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                              <span className="text-sm font-bold text-gray-300">20% Grey Works Completion</span>
-                              <span className="text-lg font-black text-white">PKR 3,980,000</span>
+                          </div>
+
+                          <div className="rounded-3xl border border-white/10 bg-white/10 p-4 sm:p-5">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-3">
+                              <div>
+                                <p className="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-gold">5 Marla</p>
+                                <h4 className="text-lg sm:text-xl font-black text-white">Luxury Home</h4>
+                              </div>
+                              <span className="text-[10px] sm:text-sm font-black uppercase tracking-[0.35em] text-gold">Total</span>
                             </div>
-                            <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                              <span className="text-sm font-bold text-gray-300">30% on Possession</span>
-                              <span className="text-lg font-black text-white">PKR 5,970,000</span>
+                            <div className="grid grid-cols-1 gap-2 text-sm sm:text-base text-gray-300">
+                              {[
+                                ['Booking', 'PKR 1,495,000'],
+                                ['Confirmation', 'PKR 4,485,000'],
+                                ['Installments', '10 x PKR 897,000'],
+                                ['Grey Works', 'PKR 5,980,000'],
+                                ['Possession', 'PKR 8,970,000'],
+                              ].map(([label, value]) => (
+                                <div key={label} className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-2">
+                                  <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-gray-400">{label}</span>
+                                  <span className="font-black text-sm sm:text-base text-white">{value}</span>
+                                </div>
+                              ))}
                             </div>
-                            <div className="flex justify-between items-center pt-4 bg-gold/10 px-4 py-3 rounded">
-                              <span className="text-base font-black text-gold">Total Value</span>
-                              <span className="text-2xl font-black text-gold">PKR 19,900,000</span>
+                            <div className="mt-4 rounded-2xl bg-gold/10 px-3 py-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] sm:text-sm font-black text-gold">
+                              <span>Total Value</span>
+                              <span>PKR 29,900,000</span>
                             </div>
                           </div>
                         </div>
 
-                        {/* Divider */}
-                        <div className="border-t border-white/10 my-8"></div>
-
-                        {/* 5 Marla Structure */}
-                        <div className="space-y-4">
-                          <h4 className="text-xl font-black uppercase tracking-[0.3em] text-gold mb-4">5 Marla Luxury Home</h4>
-                          <div className="space-y-3">
-                            <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                              <span className="text-sm font-bold text-gray-300">Booking (5%)</span>
-                              <span className="text-lg font-black text-white">PKR 1,495,000</span>
-                            </div>
-                            <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                              <span className="text-sm font-bold text-gray-300">Confirmation (15%)</span>
-                              <span className="text-lg font-black text-white">PKR 4,485,000</span>
-                            </div>
-                            <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                              <span className="text-sm font-bold text-gray-300">3% in 10 Installments</span>
-                              <span className="text-lg font-black text-white">PKR 897,000</span>
-                            </div>
-                            <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                              <span className="text-sm font-bold text-gray-300">20% Grey Works Completion</span>
-                              <span className="text-lg font-black text-white">PKR 5,980,000</span>
-                            </div>
-                            <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                              <span className="text-sm font-bold text-gray-300">30% on Possession</span>
-                              <span className="text-lg font-black text-white">PKR 8,970,000</span>
-                            </div>
-                            <div className="flex justify-between items-center pt-4 bg-gold/10 px-4 py-3 rounded">
-                              <span className="text-base font-black text-gold">Total Value</span>
-                              <span className="text-2xl font-black text-gold">PKR 29,900,000</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Terms & Conditions */}
-                        <div className="border-t border-white/10 pt-8 space-y-4">
-                          <h4 className="text-base font-black uppercase tracking-[0.3em] text-gold">Terms & Conditions</h4>
-                          <ul className="space-y-2 text-xs text-gray-400">
-                            <li className="flex items-start gap-3">
-                              <span className="text-gold mt-1">✓</span>
-                              <span>Payment should be made through cross cheque or payorder in favour of UK Developers Pvt Ltd.</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                              <span className="text-gold mt-1">✓</span>
-                              <span>10% Extra Charges on each Category (Park facing / Corner)</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                              <span className="text-gold mt-1">✓</span>
-                              <span>5% Rebate on Full Payment.</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                              <span className="text-gold mt-1">✓</span>
-                              <span>1 Year Payment Plan Available</span>
-                            </li>
+                        <div className="rounded-3xl border border-white/10 p-4 sm:p-5 bg-white/10 text-[10px] sm:text-sm text-gray-300">
+                          <h4 className="text-[11px] sm:text-sm font-black uppercase tracking-[0.35em] text-gold mb-3">Terms & Conditions</h4>
+                          <ul className="grid gap-2">
+                            {[
+                              'Payment should be made through cross cheque or payorder in favour of UK Developers Pvt Ltd.',
+                              '10% Extra Charges on each Category (Park facing / Corner)',
+                              '5% Rebate on Full Payment.',
+                              '1 Year Payment Plan Available',
+                            ].map((item) => (
+                              <li key={item} className="flex gap-2 text-[10px] sm:text-[11px] leading-snug">
+                                <span className="text-gold">✓</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
                           </ul>
                         </div>
                       </div>
