@@ -268,7 +268,7 @@ const ProjectDetail: React.FC = () => {
                           loading="lazy"
                           title="UK 15 Luxury Homes Panorama A"
                           src="https://panoraven.com/en/embed/ktXp1rkcL4"
-                          className="w-full h-[440px] sm:h-[520px] md:h-[600px] lg:h-[660px]"
+                          className="w-full h-[440px] sm:h-[520px] md:h-[520px] lg:h-[520px] xl:h-[560px]"
                           frameBorder="0"
                           allowFullScreen
                         />
@@ -281,7 +281,7 @@ const ProjectDetail: React.FC = () => {
                           loading="lazy"
                           title="UK 15 Luxury Homes Panorama B"
                           src="https://panoraven.com/en/embed/qF5hpIfNNd"
-                          className="w-full h-[440px] sm:h-[520px] md:h-[600px] lg:h-[660px]"
+                          className="w-full h-[440px] sm:h-[520px] md:h-[520px] lg:h-[520px] xl:h-[560px]"
                           frameBorder="0"
                           allowFullScreen
                         />
@@ -294,7 +294,7 @@ const ProjectDetail: React.FC = () => {
                           loading="lazy"
                           title="UK 15 Luxury Homes Panorama C"
                           src="https://panoraven.com/en/embed/lYeoPl5xu4"
-                          className="w-full h-[440px] sm:h-[520px] md:h-[600px] lg:h-[660px]"
+                          className="w-full h-[440px] sm:h-[520px] md:h-[520px] lg:h-[520px] xl:h-[560px]"
                           frameBorder="0"
                           allowFullScreen
                         />
