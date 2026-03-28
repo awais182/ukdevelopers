@@ -198,52 +198,52 @@ const ProjectDetail: React.FC = () => {
 
               {/* Project Specifications */}
               <section className="space-y-6 bg-gradient-to-b from-white to-gold/5 p-5 sm:p-6 md:p-8 lg:p-10 rounded-3xl border border-gold/20 shadow-xl">
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-3">
                   <div>
-                    <p className="text-gold text-xs sm:text-sm uppercase tracking-[0.35em] font-black pb-1">Project Specifications</p>
-                    <h3 className="text-black font-black uppercase tracking-tight leading-tight text-[clamp(2rem,4.2vw,3.8rem)] max-w-3xl">Key metrics that matter</h3>
+                    <p className="text-gold text-xs sm:text-[11px] uppercase tracking-[0.35em] font-black pb-1">Project Specifications</p>
+                    <h3 className="text-black font-black uppercase tracking-tight leading-tight text-[clamp(1.6rem,3vw,2.4rem)] max-w-3xl">Key metrics that matter</h3>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
                   {project.units && (
-                    <article className="h-full flex flex-col justify-between border border-gold/30 rounded-2xl p-4 sm:p-5 md:p-6 bg-white shadow-lg transition-all hover:shadow-2xl">
+                    <article className="h-full flex flex-col justify-between border border-gold/30 rounded-2xl p-3 sm:p-4 bg-white shadow-lg transition-all hover:shadow-2xl">
                       <div>
-                        <h4 className="text-gray-400 uppercase tracking-[0.35em] text-[0.65rem] sm:text-[0.75rem] md:text-[0.85rem]">Total Units</h4>
-                        <p className="mt-4 text-[clamp(1.8rem,3vw,2.6rem)] sm:text-[clamp(2rem,3vw,2.8rem)] font-black text-black leading-none">{project.units}</p>
+                        <h4 className="text-gray-400 uppercase tracking-[0.35em] text-[0.65rem]">Total Units</h4>
+                        <p className="mt-3 text-[clamp(1.6rem,2.5vw,2.2rem)] font-black text-black leading-none">{project.units}</p>
                       </div>
-                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[0.7rem] sm:text-[0.8rem]">Individual spaces</small>
+                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[0.65rem]">Individual spaces</small>
                     </article>
                   )}
 
                   {project.floors && (
-                    <article className="h-full flex flex-col justify-between border border-gold/30 rounded-2xl p-4 sm:p-5 md:p-6 bg-white shadow-lg transition-all hover:shadow-2xl">
+                    <article className="h-full flex flex-col justify-between border border-gold/30 rounded-2xl p-3 sm:p-4 bg-white shadow-lg transition-all hover:shadow-2xl">
                       <div>
-                        <h4 className="text-gray-400 uppercase tracking-[0.35em] text-[0.65rem] sm:text-[0.75rem] md:text-[0.85rem]">Floors</h4>
-                        <p className="mt-4 text-[clamp(1.8rem,3vw,2.6rem)] sm:text-[clamp(2rem,3vw,2.8rem)] font-black text-black leading-none">{project.floors}</p>
+                        <h4 className="text-gray-400 uppercase tracking-[0.35em] text-[0.65rem]">Floors</h4>
+                        <p className="mt-3 text-[clamp(1.6rem,2.5vw,2.2rem)] font-black text-black leading-none">{project.floors}</p>
                       </div>
-                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[0.7rem] sm:text-[0.8rem]">Levels</small>
+                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[0.65rem]">Levels</small>
                     </article>
                   )}
 
-                  <article className="h-full flex flex-col justify-between border border-gold/30 rounded-2xl p-4 sm:p-5 md:p-6 bg-white shadow-lg transition-all hover:shadow-2xl">
+                  <article className="h-full flex flex-col justify-between border border-gold/30 rounded-2xl p-3 sm:p-4 bg-white shadow-lg transition-all hover:shadow-2xl">
                     <div>
-                      <h4 className="text-gray-400 uppercase tracking-[0.35em] text-[0.65rem] sm:text-[0.75rem] md:text-[0.85rem]">Category</h4>
-                      <p className="mt-4 text-[clamp(1.55rem,2.5vw,2.2rem)] sm:text-[clamp(1.75rem,2.5vw,2.4rem)] font-black text-black uppercase leading-tight break-words">{project.category}</p>
+                      <h4 className="text-gray-400 uppercase tracking-[0.35em] text-[0.65rem]">Category</h4>
+                      <p className="mt-3 text-[clamp(1.4rem,2vw,1.9rem)] font-black text-black uppercase leading-tight break-words">{project.category}</p>
                     </div>
-                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[0.7rem] sm:text-[0.8rem]">Type</small>
+                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[0.65rem]">Type</small>
                   </article>
 
-                  <article className="h-full flex flex-col justify-between border border-gold/30 rounded-2xl p-4 sm:p-5 md:p-6 bg-white shadow-lg transition-all hover:shadow-2xl">
+                  <article className="h-full flex flex-col justify-between border border-gold/30 rounded-2xl p-3 sm:p-4 bg-white shadow-lg transition-all hover:shadow-2xl">
                     <div>
-                      <h4 className="text-gray-400 uppercase tracking-[0.35em] text-[0.65rem] sm:text-[0.75rem] md:text-[0.85rem]">Status</h4>
-                      <p className={`mt-4 text-[clamp(1.55rem,2.5vw,2.2rem)] sm:text-[clamp(1.75rem,2.5vw,2.4rem)] font-black uppercase leading-tight break-words ${
+                      <h4 className="text-gray-400 uppercase tracking-[0.35em] text-[0.65rem]">Status</h4>
+                      <p className={`mt-3 text-[clamp(1.4rem,2vw,1.9rem)] font-black uppercase leading-tight break-words ${
                         project.status === 'Delivered' ? 'text-black' : project.status === 'Under Construction' ? 'text-gold' : 'text-gray-500'
                       }`}>
                         {project.status === 'Under Construction' ? 'Ongoing' : project.status}
                       </p>
                     </div>
-                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[0.7rem] sm:text-[0.8rem]">Progress</small>
+                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[0.65rem]">Progress</small>
                   </article>
                 </div>
               </section>
