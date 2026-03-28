@@ -8,6 +8,17 @@
   ],
   "inquiries": [
     {
+      "id": "f7970648-f23e-40a9-961d-077d6d9c8e46",
+      "name": "Awais Raza",
+      "email": "bscs4eb5048awaisraza@gmail.com",
+      "phone": "+923061247986",
+      "projectId": "13",
+      "message": "rewds",
+      "source": "form",
+      "status": "new",
+      "createdAt": "2026-03-28T13:23:00.721Z"
+    },
+    {
       "id": "42ebd54f-b1fd-47f7-a2c7-d1935a50ed3e",
       "name": "Awais Raza",
       "email": "bscs4eb5048awaisraza@gmail.com",
