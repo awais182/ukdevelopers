@@ -10,6 +10,21 @@ const getInteriorRoomName = (filename: string): string => {
   return name;
 };
 
+const formatPaymentValue = (value: any): string => {
+  if (value === null || value === undefined || value === '') return 'N/A';
+  if (typeof value === 'string' || typeof value === 'number') return String(value);
+  if (typeof value === 'object') {
+    if ('amount' in value && 'percent' in value) {
+      return `${value.amount} (${value.percent})`;
+    }
+    if ('3Marla' in value && '5Marla' in value) {
+      return `3 Marla: ${value['3Marla']} | 5 Marla: ${value['5Marla']}`;
+    }
+    return Object.entries(value).map(([k, v]) => `${k}: ${v}`).join(' | ');
+  }
+  return String(value);
+};
+
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const project = PROJECTS.find(p => p.id === parseInt(id || '0', 10));
@@ -182,48 +197,53 @@ const ProjectDetail: React.FC = () => {
               </div>
 
               {/* Project Specifications */}
-              <section className="space-y-8 md:space-y-10 bg-gradient-to-b from-white to-gold/5 p-5 sm:p-6 md:p-8 lg:p-10 rounded-3xl border border-gold/20 shadow-xl">
-                <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 lg:gap-6">
+              <section className="space-y-6 bg-gradient-to-b from-white to-gold/5 p-5 sm:p-6 md:p-8 lg:p-10 rounded-3xl border border-gold/20 shadow-xl">
+                <div className="flex flex-col gap-4">
                   <div>
                     <p className="text-gold text-xs sm:text-sm uppercase tracking-[0.35em] font-black pb-1">Project Specifications</p>
-                    <h3 className="text-black font-black uppercase tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">Key metrics that matter</h3>
+                    <h3 className="text-black font-black uppercase tracking-tight leading-tight text-[clamp(2rem,4.2vw,3.8rem)] max-w-3xl">Key metrics that matter</h3>
                   </div>
-                  <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-md">
-                    Full responsive overview of the project’s most important parameters. This section is designed for clarity on all screens, from mobile to extra-large.
-                  </p>
-                </header>
+                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
                   {project.units && (
-                    <article className="border border-gold/30 rounded-2xl p-5 sm:p-6 md:p-7 bg-white shadow-lg transition-all hover:shadow-2xl">
-                      <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm whitespace-nowrap">Total Units</h4>
-                      <p className="mt-3 text-4xl sm:text-5xl md:text-6xl font-black text-black whitespace-nowrap">{project.units}</p>
-                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px] whitespace-nowrap">Individual spaces</small>
+                    <article className="h-full flex flex-col justify-between border border-gold/30 rounded-2xl p-4 sm:p-5 md:p-6 bg-white shadow-lg transition-all hover:shadow-2xl">
+                      <div>
+                        <h4 className="text-gray-400 uppercase tracking-[0.35em] text-[0.65rem] sm:text-[0.75rem] md:text-[0.85rem]">Total Units</h4>
+                        <p className="mt-4 text-[clamp(1.8rem,3vw,2.6rem)] sm:text-[clamp(2rem,3vw,2.8rem)] font-black text-black leading-none">{project.units}</p>
+                      </div>
+                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[0.7rem] sm:text-[0.8rem]">Individual spaces</small>
                     </article>
                   )}
 
                   {project.floors && (
-                    <article className="border border-gold/30 rounded-2xl p-5 sm:p-6 md:p-7 bg-white shadow-lg transition-all hover:shadow-2xl">
-                      <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm whitespace-nowrap">Floors</h4>
-                      <p className="mt-3 text-4xl sm:text-5xl md:text-6xl font-black text-black whitespace-nowrap">{project.floors}</p>
-                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px] whitespace-nowrap">Levels</small>
+                    <article className="h-full flex flex-col justify-between border border-gold/30 rounded-2xl p-4 sm:p-5 md:p-6 bg-white shadow-lg transition-all hover:shadow-2xl">
+                      <div>
+                        <h4 className="text-gray-400 uppercase tracking-[0.35em] text-[0.65rem] sm:text-[0.75rem] md:text-[0.85rem]">Floors</h4>
+                        <p className="mt-4 text-[clamp(1.8rem,3vw,2.6rem)] sm:text-[clamp(2rem,3vw,2.8rem)] font-black text-black leading-none">{project.floors}</p>
+                      </div>
+                      <small className="text-gray-500 uppercase tracking-[0.2em] text-[0.7rem] sm:text-[0.8rem]">Levels</small>
                     </article>
                   )}
 
-                  <article className="border border-gold/30 rounded-2xl p-5 sm:p-6 md:p-7 bg-white shadow-lg transition-all hover:shadow-2xl">
-                    <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm whitespace-nowrap">Category</h4>
-                    <p className="mt-3 text-3xl sm:text-4xl md:text-5xl font-black text-black uppercase whitespace-nowrap">{project.category}</p>
-                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px] whitespace-nowrap">Type</small>
+                  <article className="h-full flex flex-col justify-between border border-gold/30 rounded-2xl p-4 sm:p-5 md:p-6 bg-white shadow-lg transition-all hover:shadow-2xl">
+                    <div>
+                      <h4 className="text-gray-400 uppercase tracking-[0.35em] text-[0.65rem] sm:text-[0.75rem] md:text-[0.85rem]">Category</h4>
+                      <p className="mt-4 text-[clamp(1.55rem,2.5vw,2.2rem)] sm:text-[clamp(1.75rem,2.5vw,2.4rem)] font-black text-black uppercase leading-tight break-words">{project.category}</p>
+                    </div>
+                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[0.7rem] sm:text-[0.8rem]">Type</small>
                   </article>
 
-                  <article className="border border-gold/30 rounded-2xl p-5 sm:p-6 md:p-7 bg-white shadow-lg transition-all hover:shadow-2xl">
-                    <h4 className="text-gray-400 uppercase tracking-widest text-[10px] sm:text-xs md:text-sm whitespace-nowrap">Status</h4>
-                    <p className={`mt-3 text-3xl sm:text-4xl md:text-5xl font-black uppercase whitespace-nowrap ${
-                      project.status === 'Delivered' ? 'text-black' : project.status === 'Under Construction' ? 'text-gold' : 'text-gray-500'
-                    }`}>
-                      {project.status === 'Under Construction' ? 'Ongoing' : project.status}
-                    </p>
-                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[9px] sm:text-[10px] whitespace-nowrap">Progress</small>
+                  <article className="h-full flex flex-col justify-between border border-gold/30 rounded-2xl p-4 sm:p-5 md:p-6 bg-white shadow-lg transition-all hover:shadow-2xl">
+                    <div>
+                      <h4 className="text-gray-400 uppercase tracking-[0.35em] text-[0.65rem] sm:text-[0.75rem] md:text-[0.85rem]">Status</h4>
+                      <p className={`mt-4 text-[clamp(1.55rem,2.5vw,2.2rem)] sm:text-[clamp(1.75rem,2.5vw,2.4rem)] font-black uppercase leading-tight break-words ${
+                        project.status === 'Delivered' ? 'text-black' : project.status === 'Under Construction' ? 'text-gold' : 'text-gray-500'
+                      }`}>
+                        {project.status === 'Under Construction' ? 'Ongoing' : project.status}
+                      </p>
+                    </div>
+                    <small className="text-gray-500 uppercase tracking-[0.2em] text-[0.7rem] sm:text-[0.8rem]">Progress</small>
                   </article>
                 </div>
               </section>
@@ -650,28 +670,28 @@ const ProjectDetail: React.FC = () => {
                       <div className="space-y-12">
                         <div className="flex justify-between items-end border-b border-white/5 pb-8">
                           <span className="text-[10px] text-gray-500 font-black uppercase tracking-widest">Initial Equity</span>
-                          <span className="text-3xl md:text-4xl font-black text-white">{project.paymentPlan?.downPayment}</span>
+                          <span className="text-3xl md:text-4xl font-black text-white">{formatPaymentValue(project.paymentPlan?.downPayment)}</span>
                         </div>
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                           <div className="space-y-3">
                             <span className="text-[9px] text-gray-500 font-black uppercase tracking-widest block">Monthly</span>
-                            <span className="text-lg font-black">{project.paymentPlan?.monthlyInstallment}</span>
+                            <span className="text-lg font-black">{formatPaymentValue(project.paymentPlan?.monthlyInstallment)}</span>
                           </div>
                           <div className="space-y-3">
                             <span className="text-[9px] text-gray-500 font-black uppercase tracking-widest block">Quarterly</span>
-                            <span className="text-lg font-black">{project.paymentPlan?.quarterlyInstallment}</span>
+                            <span className="text-lg font-black">{formatPaymentValue(project.paymentPlan?.quarterlyInstallment)}</span>
                           </div>
                         </div>
 
                         <div className="flex justify-between items-end border-b border-white/5 pb-8">
                           <span className="text-[10px] text-gray-500 font-black uppercase tracking-widest">Final Ledger</span>
-                          <span className="text-lg font-black text-white">{project.paymentPlan?.onPossession}</span>
+                          <span className="text-lg font-black text-white">{formatPaymentValue(project.paymentPlan?.onPossession)}</span>
                         </div>
 
                         <div className="pt-4">
                           <span className="text-[10px] text-gold font-black uppercase tracking-widest block mb-3">Starting Portfolio Value</span>
-                          <span className="text-4xl md:text-5xl font-black text-white tracking-tighter">{project.paymentPlan?.totalPrice}</span>
+                          <span className="text-4xl md:text-5xl font-black text-white tracking-tighter">{formatPaymentValue(project.paymentPlan?.totalPrice)}</span>
                         </div>
                       </div>
                     )}

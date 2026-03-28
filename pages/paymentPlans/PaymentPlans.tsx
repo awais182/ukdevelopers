@@ -4,6 +4,21 @@ import { PROJECTS } from '../../constants';
 import SEO from '../../components/common/SEO';
 
 const PaymentPlans: React.FC = () => {
+  const formatPaymentValue = (value: any) => {
+    if (value === null || value === undefined || value === '') return 'N/A';
+    if (typeof value === 'string' || typeof value === 'number') return value;
+    if (typeof value === 'object') {
+      if ('amount' in value && 'percent' in value) {
+        return `${value.amount} (${value.percent})`;
+      }
+      if ('3Marla' in value && '5Marla' in value) {
+        return `3 Marla: ${value['3Marla']} | 5 Marla: ${value['5Marla']}`;
+      }
+      return Object.entries(value).map(([k, v]) => `${k}: ${v}`).join(' | ');
+    }
+    return String(value);
+  };
+
   // Get only ongoing projects (Under Construction)
   const activeProjects = PROJECTS.filter(p => p.status === 'Under Construction');
 
@@ -62,142 +77,131 @@ const PaymentPlans: React.FC = () => {
                 </div>
 
                 {/* Payment Structure */}
-                <div className="bg-corporate-black p-6 sm:p-8 md:p-12 lg:p-14 text-white shadow-[0_40px_100px_rgba(0,0,0,0.15)] relative overflow-hidden border-t-8 border-gold rounded-lg mb-6 sm:mb-8">
-                  {/* UK 15 Special Payment Table */}
-                  {project.id === 15 ? (
-                    <div className="space-y-8">
-                      {/* 3 Marla Structure */}
-                      <div className="space-y-4">
-                        <h4 className="text-xl font-black uppercase tracking-[0.3em] text-gold mb-4">3 Marla Luxury Home</h4>
-                        <div className="space-y-3">
-                          <div className="flex justify-between items-center gap-2 border-b border-white/10 pb-3 flex-wrap">
-                            <span className="text-xs sm:text-sm font-bold text-gray-300">Booking (5%)</span>
-                            <span className="text-base sm:text-lg font-black text-white">PKR 995,000</span>
-                          </div>
-                          <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                            <span className="text-sm font-bold text-gray-300">Confirmation (15%)</span>
-                            <span className="text-lg font-black text-white">PKR 2,985,000</span>
-                          </div>
-                          <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                            <span className="text-sm font-bold text-gray-300">3% in 10 Installments</span>
-                            <span className="text-lg font-black text-white">PKR 597,000</span>
-                          </div>
-                          <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                            <span className="text-sm font-bold text-gray-300">20% Grey Works Completion</span>
-                            <span className="text-lg font-black text-white">PKR 3,980,000</span>
-                          </div>
-                          <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                            <span className="text-sm font-bold text-gray-300">30% on Possession</span>
-                            <span className="text-lg font-black text-white">PKR 5,970,000</span>
-                          </div>
-                          <div className="flex justify-between items-center pt-4 bg-gold/10 px-4 py-3 rounded">
-                            <span className="text-base font-black text-gold">Total Value</span>
-                            <span className="text-2xl font-black text-gold">PKR 19,900,000</span>
-                          </div>
-                        </div>
+                <div className="grid gap-6 lg:grid-cols-2">
+                  <div className="rounded-3xl border border-gold/20 bg-white p-5 sm:p-6 md:p-8 shadow-md">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                      <div>
+                        <p className="text-[10px] uppercase tracking-[0.35em] text-gray-500">Quick Plan Summary</p>
+                        <h4 className="mt-3 text-2xl sm:text-3xl font-black text-black">Essential payment milestones</h4>
                       </div>
-
-                      {/* Divider */}
-                      <div className="border-t border-white/10 my-8"></div>
-
-                      {/* 5 Marla Structure */}
-                      <div className="space-y-4">
-                        <h4 className="text-xl font-black uppercase tracking-[0.3em] text-gold mb-4">5 Marla Luxury Home</h4>
-                        <div className="space-y-3">
-                          <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                            <span className="text-sm font-bold text-gray-300">Booking (5%)</span>
-                            <span className="text-lg font-black text-white">PKR 1,495,000</span>
-                          </div>
-                          <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                            <span className="text-sm font-bold text-gray-300">Confirmation (15%)</span>
-                            <span className="text-lg font-black text-white">PKR 4,485,000</span>
-                          </div>
-                          <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                            <span className="text-sm font-bold text-gray-300">3% in 10 Installments</span>
-                            <span className="text-lg font-black text-white">PKR 897,000</span>
-                          </div>
-                          <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                            <span className="text-sm font-bold text-gray-300">20% Grey Works Completion</span>
-                            <span className="text-lg font-black text-white">PKR 5,980,000</span>
-                          </div>
-                          <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                            <span className="text-sm font-bold text-gray-300">30% on Possession</span>
-                            <span className="text-lg font-black text-white">PKR 8,970,000</span>
-                          </div>
-                          <div className="flex justify-between items-center pt-4 bg-gold/10 px-4 py-3 rounded">
-                            <span className="text-base font-black text-gold">Total Value</span>
-                            <span className="text-2xl font-black text-gold">PKR 29,900,000</span>
-                          </div>
-                        </div>
+                      <span className="inline-flex items-center rounded-full bg-gold/10 px-3 py-2 text-[10px] uppercase tracking-[0.35em] font-black text-black">Simple, easy to compare</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3 mt-6">
+                      <div className="rounded-xl border border-gray-200 p-3 bg-gray-50">
+                        <p className="text-[10px] uppercase tracking-wider text-gray-500">Booking</p>
+                        <p className="mt-2 text-xl sm:text-2xl font-black text-black">{formatPaymentValue(project.paymentPlan?.booking ?? (project.id === 15 ? { amount:'PKR 995,000', percent:'5%' } : 'N/A'))}</p>
                       </div>
-
-                      {/* Terms & Conditions */}
-                      <div className="border-t border-white/10 pt-8 space-y-4">
-                        <h4 className="text-base font-black uppercase tracking-[0.3em] text-gold">Terms & Conditions</h4>
-                        <ul className="space-y-2 text-xs text-gray-400">
-                          <li className="flex items-start gap-3">
-                            <span className="text-gold mt-1">✓</span>
-                            <span>Payment should be made through cross cheque or payorder in favour of UK Developers Pvt Ltd.</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <span className="text-gold mt-1">✓</span>
-                            <span>10% Extra Charges on each Category (Park facing / Corner)</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <span className="text-gold mt-1">✓</span>
-                            <span>5% Rebate on Full Payment.</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <span className="text-gold mt-1">✓</span>
-                            <span>1 Year Payment Plan Available</span>
-                          </li>
-                        </ul>
+                      <div className="rounded-xl border border-gray-200 p-3 bg-gray-50">
+                        <p className="text-[10px] uppercase tracking-wider text-gray-500">Confirmation</p>
+                        <p className="mt-2 text-xl sm:text-2xl font-black text-black">{formatPaymentValue(project.paymentPlan?.confirmation ?? (project.id === 15 ? { amount:'PKR 2,985,000', percent:'15%' } : 'N/A'))}</p>
+                      </div>
+                      <div className="rounded-xl border border-gray-200 p-3 bg-gray-50">
+                        <p className="text-[10px] uppercase tracking-wider text-gray-500">On Possession</p>
+                        <p className="mt-2 text-xl sm:text-2xl font-black text-black">{formatPaymentValue(project.paymentPlan?.onPossession ?? (project.id === 15 ? '30%' : 'N/A'))}</p>
+                      </div>
+                      <div className="rounded-xl border border-gray-200 p-3 bg-gray-50">
+                        <p className="text-[10px] uppercase tracking-wider text-gray-500">Total</p>
+                        <p className="mt-2 text-xl sm:text-2xl font-black text-black">{formatPaymentValue(project.paymentPlan?.totalPrice ?? (project.id === 15 ? { '3Marla': 'PKR 19,900,000', '5Marla': 'PKR 29,900,000' } : 'N/A'))}</p>
                       </div>
                     </div>
-                  ) : (
-                    // Default payment structure for other projects
-                    <div className="space-y-12">
-                      <div className="flex justify-between items-end border-b border-white/5 pb-8">
-                        <span className="text-[10px] text-gray-500 font-black uppercase tracking-widest">Initial Equity</span>
-                        <span className="text-3xl md:text-4xl font-black text-white">{project.paymentPlan?.downPayment}</span>
-                      </div>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div className="space-y-3">
-                          <span className="text-[9px] text-gray-500 font-black uppercase tracking-widest block">Monthly</span>
-                          <span className="text-lg font-black">{project.paymentPlan?.monthlyInstallment}</span>
-                        </div>
-                        <div className="space-y-3">
-                          <span className="text-[9px] text-gray-500 font-black uppercase tracking-widest block">Quarterly</span>
-                          <span className="text-lg font-black">{project.paymentPlan?.quarterlyInstallment}</span>
-                        </div>
-                      </div>
-
-                      <div className="flex justify-between items-end border-b border-white/5 pb-8">
-                        <span className="text-[10px] text-gray-500 font-black uppercase tracking-widest">Final Ledger</span>
-                        <span className="text-lg font-black text-white">{project.paymentPlan?.onPossession}</span>
-                      </div>
-
-                      <div className="pt-4">
-                        <span className="text-[10px] text-gold font-black uppercase tracking-widest block mb-3">Starting Portfolio Value</span>
-                        <span className="text-4xl md:text-5xl font-black text-white tracking-tighter">{project.paymentPlan?.totalPrice}</span>
-                      </div>
+                    <div className="mt-6 space-y-2 text-sm text-gray-600">
+                      <p className="font-black uppercase tracking-wide">More clarity:</p>
+                      <p>- Flexible instalment cycles for every investor</p>
+                      <p>- Rebate available on full payment</p>
+                      <p>- Premium positions subject to extra 10% charges</p>
                     </div>
-                  )}
+                  </div>
 
-                  <Link to="/contact" className="w-full mt-16 bg-gold text-white font-black uppercase tracking-[0.4em] py-5 md:py-6 hover:bg-white hover:text-black transition-all shadow-xl group text-xs rounded text-center inline-block">
-                    Secure Consultation
-                    <span className="ml-4 group-hover:translate-x-2 transition-transform inline-block">→</span>
-                  </Link>
+                  <div className="rounded-3xl border border-gold/20 bg-black text-white p-5 sm:p-6 md:p-8 shadow-xl">
+                    {project.id === 15 ? (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {[{
+                          title: '3 Marla Plan', entries: [
+                            ['Booking', 'PKR 995,000'],
+                            ['Confirmation', 'PKR 2,985,000'],
+                            ['Installments', '10 x PKR 597,000'],
+                            ['Grey Works', 'PKR 3,980,000'],
+                            ['Possession', 'PKR 5,970,000'],
+                            ['Total', 'PKR 19,900,000'],
+                          ]
+                        }, {
+                          title: '5 Marla Plan', entries: [
+                            ['Booking', 'PKR 1,495,000'],
+                            ['Confirmation', 'PKR 4,485,000'],
+                            ['Installments', '10 x PKR 897,000'],
+                            ['Grey Works', 'PKR 5,980,000'],
+                            ['Possession', 'PKR 8,970,000'],
+                            ['Total', 'PKR 29,900,000'],
+                          ]
+                        }].map((plan) => (
+                          <div key={plan.title} className="rounded-xl border border-white/10 p-4 bg-white/10">
+                            <p className="text-sm font-black uppercase tracking-wider text-gold mb-3">{plan.title}</p>
+                            <div className="space-y-2 text-sm text-white">
+                              {plan.entries.map(([label, value]) => (
+                                <div key={label} className="flex justify-between gap-2 items-start">
+                                  <span className="text-[10px] uppercase tracking-wide text-gray-200">{label}</span>
+                                  <span className="font-black text-sm text-white text-right">{value}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="space-y-4">
+                        <h4 className="text-lg font-black uppercase tracking-wide text-gold">Standard Installment Disclosure</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          {project.paymentPlan?.downPayment && (
+                            <div className="p-3 bg-white/10 rounded-lg border border-white/10">
+                              <p className="text-[10px] uppercase tracking-wide text-gray-300">Down Payment</p>
+                              <p className="mt-2 text-xl font-black">{project.paymentPlan.downPayment}</p>
+                            </div>
+                          )}
+                          {project.paymentPlan?.monthlyInstallment && (
+                            <div className="p-3 bg-white/10 rounded-lg border border-white/10">
+                              <p className="text-[10px] uppercase tracking-wide text-gray-300">Monthly</p>
+                              <p className="mt-2 text-xl font-black">{project.paymentPlan.monthlyInstallment}</p>
+                            </div>
+                          )}
+                          {project.paymentPlan?.quarterlyInstallment && (
+                            <div className="p-3 bg-white/10 rounded-lg border border-white/10">
+                              <p className="text-[10px] uppercase tracking-wide text-gray-300">Quarterly</p>
+                              <p className="mt-2 text-xl font-black">{project.paymentPlan.quarterlyInstallment}</p>
+                            </div>
+                          )}
+                          {project.paymentPlan?.onPossession && (
+                            <div className="p-3 bg-white/10 rounded-lg border border-white/10">
+                              <p className="text-[10px] uppercase tracking-wide text-gray-300">On Possession</p>
+                              <p className="mt-2 text-xl font-black">{project.paymentPlan.onPossession}</p>
+                            </div>
+                          )}
+                        </div>
+                        {project.paymentPlan?.totalPrice && (
+                          <div className="pt-4 border-t border-white/20">
+                            <span className="text-[10px] uppercase tracking-wide text-gray-300">Total Price</span>
+                            <p className="mt-2 text-3xl md:text-4xl font-black text-white">{project.paymentPlan.totalPrice}</p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    <div className="mt-6 border-t border-white/10 pt-4 text-xs text-gray-300 space-y-1">
+                      <p>All figures are indicative and subject to final approval.</p>
+                      <p>Contact our team for project-specific discounts and customised payment plans.</p>
+                    </div>
+                  </div>
                 </div>
 
-                {/* View Project Link */}
-                <div className="text-center">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-8">
+                  <Link to="/contact" className="w-full sm:w-auto inline-flex justify-center items-center bg-gold text-black font-black uppercase tracking-[0.35em] py-4 px-8 hover:bg-white hover:text-black transition-all shadow-lg rounded-lg">
+                    Secure Consultation
+                    <span className="ml-3">→</span>
+                  </Link>
                   <Link
                     to={`/projects/${project.id}`}
-                    className="inline-block text-gold hover:text-black font-black uppercase tracking-[0.3em] text-sm border-b-2 border-gold hover:border-black transition-all"
+                    className="w-full sm:w-auto inline-flex justify-center items-center border-2 border-gold text-gold font-black uppercase tracking-[0.3em] py-4 px-8 hover:bg-gold hover:text-black transition-all rounded-lg"
                   >
-                    View Full Project Details →
+                    View Project Details
                   </Link>
                 </div>
 
