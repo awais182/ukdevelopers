@@ -3,6 +3,7 @@ import { API_BASE } from '../../constants';
 
 const Admin: React.FC = () => {
   const [token, setToken] = React.useState<string | null>(null);
+  const [loginError, setLoginError] = React.useState<string | null>(null);
   // username is fixed to admin and not shown; only password is required
   const [username] = React.useState('admin');
   const [password, setPassword] = React.useState('');
@@ -13,21 +14,33 @@ const Admin: React.FC = () => {
 
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoginError(null);
     try {
       const res = await fetch(`${API_BASE}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       });
-      const data = await res.json();
-      if (res.ok) {
-        setToken(data.token);
-        // do not persist token so password must be entered again on reload
-      } else {
-        alert(data.error || 'Login failed');
+
+      if (!res.ok) {
+        const text = await res.text();
+        let message = `Login failed (${res.status})`;
+        try {
+          const body = JSON.parse(text);
+          if (body && body.error) message = body.error;
+        } catch (_err) {
+          if (text.trim()) message = text.trim().slice(0, 300);
+        }
+        setLoginError(message);
+        return;
       }
+
+      const data = await res.json();
+      setToken(data.token);
+      // do not persist token so password must be entered again on reload
     } catch (err) {
       console.error(err);
+      setLoginError('Unable to reach the API. Start the backend server and make sure the frontend is using the correct API base URL.');
     }
   };
 
@@ -88,6 +101,11 @@ const Admin: React.FC = () => {
               className="w-full border p-2 rounded"
             />
           </div>
+          {loginError && (
+            <div className="mb-4 rounded border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+              {loginError}
+            </div>
+          )}
           <button type="submit" className="w-full bg-black text-white py-2 rounded">Log In</button>
         </form>
       </div>
