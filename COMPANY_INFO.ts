@@ -85,8 +85,8 @@ export const COMPANY_INFO = {
 
   // Contact Information
   contact: {
-    phone: '+92 320 1111 986',
-    phoneDisplay: '+92 320 1111 986',
+    phone: '+923251114441',
+    phoneDisplay: '+923251114441',
     email: 'info@ukdevelopers.pk',
     supportEmail: 'info@ukdevelopers.pk',
     whatsapp: '+923201111986'
